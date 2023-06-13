@@ -111,13 +111,17 @@ class WaveNet(nn.Module):
 class WaveNetClassifier(nn.Module):
     def __init__(self,seqLen,output_size):
         super().__init__()
+        self.seqLen=seqLen
         self.output_size=output_size
+
         self.wavenet=WaveNet(1,1,2,3,4)
-        self.liner=nn.Linear(seqLen-self.wavenet.calculateReceptiveField(),output_size)
+        self.linear=nn.Linear(seqLen-self.wavenet.calculateReceptiveField()-1,output_size)
         self.softmax=nn.Softmax(-1)
     
     def forward(self,x):
+
         x=self.wavenet(x)
-        x=self.liner(x)
+        x=self.linear(x)
+
         return self.softmax(x)
         

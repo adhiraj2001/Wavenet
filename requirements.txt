@@ -1,0 +1,15 @@
+numpy
+pandas
+matplotlib
+tqdm
+
+pynvim
+
+# mamba install -n wavenet pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+
+# Conda (Local environment)
+
+# conda install -n base -c conda-forge nb_conda_kernels (base environment)
+# conda install -n myenv -c conda-forge ipykernel (current environment)
+# conda install -n base -c conda-forge jupyterlab_widgets (base)
+# conda install -n myenv -c conda-forge ipywidgets (current environment)
